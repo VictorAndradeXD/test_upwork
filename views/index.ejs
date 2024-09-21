@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Upwork</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h1>Quantity</h1>
+            <input type="number" id="number-input" placeholder="Type here">
+        </div>
+
+        <div class="list-section">
+            <div id="bars-container">
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        const numberInput = document.getElementById('number-input');
+        const barsContainer = document.getElementById('bars-container');
+
+        
+        numberInput.addEventListener('input', function() {
+            const number = parseInt(this.value);
+            barsContainer.innerHTML = ''; 
+
+            if (!isNaN(number) && number > 0) {
+                for (let i = 1; i <= number; i++) {
+                    const bar = document.createElement('div');
+                    bar.classList.add('bar');
+                    bar.textContent = `${i}`;
+                    barsContainer.appendChild(bar);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
